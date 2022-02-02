@@ -1,0 +1,65 @@
+.title{ 
+    display: table; 
+    width: 100%;
+    font-size: 45px;
+    background-color:#cc0000; 
+    color:white; 
+    text-align: center;
+}
+
+.nowClock{ 
+    display: table; 
+    width: 100%;
+    font-size: 15px;
+    background-color:#cc0000;
+    color:white;
+    text-align: right;
+}
+
+.timezone{ 
+    display: table; 
+    width: 100%;
+    background-color:#52cc00;
+    color:black;
+    text-align: right;
+}
+
+.countdownTime{
+    height: 3em;
+    display: table;
+    font-size: 30px; 
+    font-style: oblique;
+    font-weight:bold;
+    width: 100%;
+    background-color:#52cc00;
+    color:red;
+    line-height: 3em;
+    text-align: center;
+    
+}
+
+.countdownTime2{
+    height: 3em;
+    display: table;
+    font-size: 30px; 
+    font-style: oblique;
+    font-weight:bold;
+    width: 100%;
+    background-color:red;
+    color:white;
+    line-height: 3em;
+    text-align: center;
+}
+
+.actSearch{
+    text-align: center;
+}
+
+.seat{
+    text-align: center;
+}
+
+canvas:hover{
+    opacity: 0.5;
+}
+
