@@ -37,8 +37,8 @@
       <span>ようこそ &ensp;</span><span id="account" style="font-size: 15px;"></span>
       <p>
         <span>従業員コード: &nbsp;</span> 
-        <input type ="text" id="jcode" required minlength="7" maxlength="7" size="10">
-        <button id="search">  検索</button> 
+        <input type ="text" id="jcode" required minlength="7" maxlength="7" size="10"></input>
+        <button id="search">&nbsp;検索&nbsp;</button> 
       </p>
     </div>
     <br>
@@ -94,16 +94,7 @@
       <span id="cntSec"></span><span>秒&ensp;</span>
     </div>   
 
-    <script type="text/javascript">
-      onload = function(){
-      const setCanvas = document.querySelectorAll('canvas');
-      for (const arrCanvas of setCanvas){
-        const searchCanvas = arrCanvas.getContext('2d');
-        searchCanvas.fillStyle = 'lightgreen';
-        searchCanvas.fillRect(0, 0, 100, 80 );
-        }
-      }
-    </script>
+    <script type="text/javascript" src="open.js"></script>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
