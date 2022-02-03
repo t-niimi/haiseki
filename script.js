@@ -98,14 +98,15 @@ function nowTime(){
 
 //カウントダウン用
 function countDown(){  
+    const dayMsec = 24 * 60 * 60 * 1000
     const limit = new Date("2024/03/17/ 00:00:00");
     const jisa = timezone * 60 * 60 * 1000;
-    const setTime = limit.getTime() -now.getTime() - jisa;
-    const year = Math.floor(setTime / (24 * 60 * 60 * 1000) / 365)
-    const day = Math.floor(setTime / (24 * 60 * 60 * 1000)- (365 * year));
-    const hourTime = Math.floor(setTime % (24 * 60 * 60 * 1000) / (60 * 60 * 1000));
-    const minuteTime = Math.floor(setTime % (24 * 60 * 60 * 1000) / (60 * 1000)) % 60;
-    const secondTime = Math.floor(setTime % (24 * 60 * 60 * 1000) / 1000) % 60 % 60;
+    const setTime = limit.getTime() - now.getTime() - jisa;
+    const year = Math.floor(setTime / dayMsec / 365)
+    const day = Math.floor(setTime / dayMsec - (365 * year));
+    const hourTime = Math.floor(setTime %  dayMsec / (60 * 60 * 1000));
+    const minuteTime = Math.floor(setTime % dayMsec / (60 * 1000) % 60);
+    const secondTime = Math.floor(setTime % dayMsec / 1000 % 60 % 60);
 
     //html出力
     year_c.textContent=String(year).padStart(1);
@@ -201,7 +202,7 @@ function seatSelect(event){
             const target = document.getElementById(targetId);
             const chgCanvas = target.getContext('2d');
             chgCanvas.fillStyle = 'silver';
-            chgCanvas.fillRect(10, 10, 100, 100);
+            chgCanvas.fillRect(0, 0, target.width, target.height);
             chgCanvas.font = '12px bold';
             chgCanvas.fillStyle = 'black';
             //文字の配置を指定（左上基準にしたければtop/leftだが、文字の中心座標を指定するのでcenter
@@ -219,7 +220,6 @@ function seatSelect(event){
             }
         } 
     }
-
 }
 
 //使用中の座席を初期化する
@@ -227,12 +227,9 @@ function clearCanvas(canvasId){
     const setCanvas = document.getElementById(canvasId);
     const searchCanvas = setCanvas.getContext('2d');
     searchCanvas.fillStyle = 'lightgreen';
-    searchCanvas.fillRect(10, 10, 100, 100);
+    searchCanvas.fillRect(0, 0, setCanvas.width, setCanvas.height);
     searchCanvas.fillText("",0,0);
 }
-
-//処理開始(時間関係処理)
-showTime()
 
 //canvasで描画した■をクリックしたら文字を入れる
 seat1to1.addEventListener("click",seatSelect);
@@ -259,3 +256,6 @@ seat4to3.addEventListener("click",seatSelect);
 seat4to4.addEventListener("click",seatSelect);
 seat4to5.addEventListener("click",seatSelect);
 seat4to6.addEventListener("click",seatSelect);
+
+//ループ処理開始(時間関係処理)
+showTime()
